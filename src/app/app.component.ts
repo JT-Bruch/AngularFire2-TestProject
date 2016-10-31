@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  testButton() {
+    console.log("firebase.database.ServerValue.TIMESTAMP:" + firebase.database.ServerValue.TIMESTAMP);
+  }
 }
