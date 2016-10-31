@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  items: FirebaseListObservable<any[]>;
 
-  testButton() {
-    console.log("firebase.database.ServerValue.TIMESTAMP:" + firebase.database.ServerValue.TIMESTAMP);
+  constructor(af: AngularFire) {
+    firebase.database.enableLogging(true);
+    this.items = af.database.list('/items');
   }
 }
